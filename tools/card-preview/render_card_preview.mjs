@@ -1,6 +1,14 @@
 import { writeFileSync } from 'fs';
-globalThis.window = { CARD_ART_BASE: 'file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards' };
-const { cardArtSvg } = await import('../web/art/card-art.js');
+import { dirname, resolve } from 'path';
+import { fileURLToPath, pathToFileURL } from 'url';
+
+// The card art and this renderer live in the same checkout, so both are
+// resolved from this file. The base used to be an absolute path into a
+// directory outside the repository, which only ever worked on the machine it
+// was written on.
+const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+globalThis.window = { CARD_ART_BASE: pathToFileURL(resolve(REPO, 'web/art/cards')).href };
+const { cardArtSvg } = await import(pathToFileURL(resolve(REPO, 'web/art/card-art.js')).href);
 
 const SAMPLES = [
   { race: 'humans',    cards: [
@@ -65,5 +73,6 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   ${cells.join('\n  ')}
 </svg>`;
 
-writeFileSync('./.work/card_preview.svg', svg);
-console.log(`wrote ./.work/card_preview.svg  ${W}x${H}  ${SAMPLES.length} races x ${SAMPLES[0].cards.length} cards`);
+const out = resolve(dirname(fileURLToPath(import.meta.url)), 'card_preview.svg');
+writeFileSync(out, svg);
+console.log(`wrote ${out}  ${W}x${H}  ${SAMPLES.length} races x ${SAMPLES[0].cards.length} cards`);

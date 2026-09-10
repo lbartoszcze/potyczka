@@ -32,7 +32,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-1)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-1)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/shield.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-1)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/shield.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-1)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0c1226" stroke="#d6a93f" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#d6a93f" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -75,7 +75,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-2)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-2)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/sword.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-2)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/sword.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-2)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0c1226" stroke="#d6a93f" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#d6a93f" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -118,7 +118,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-3)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-3)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/holy.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-3)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/holy.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-3)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0c1226" stroke="#d6a93f" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#d6a93f" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -161,7 +161,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-4)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-4)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/tower.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-4)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/tower.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-4)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0c1226" stroke="#d6a93f" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#d6a93f" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -204,7 +204,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-5)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-5)"/>
   <circle cx="50" cy="48" r="22" fill="#6cd6ff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/banner.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-5)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/banner.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-5)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0c1226" stroke="#d6a93f" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#6cd6ff" stroke="#d6a93f" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -247,7 +247,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-6)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-6)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/helmet.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-6)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/helmet.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-6)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0c1226" stroke="#d6a93f" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#d6a93f" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -291,7 +291,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-7)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-7)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/anvil.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-7)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/anvil.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-7)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#1a0f08" stroke="#c4844a" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#c4844a" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -334,7 +334,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-8)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-8)"/>
   <circle cx="50" cy="48" r="22" fill="#6cd6ff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/hammer.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-8)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/hammer.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-8)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#1a0f08" stroke="#c4844a" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#6cd6ff" stroke="#c4844a" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -377,7 +377,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-9)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-9)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/axe.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-9)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/axe.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-9)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#1a0f08" stroke="#c4844a" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#c4844a" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -420,7 +420,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-a)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-a)"/>
   <circle cx="50" cy="48" r="22" fill="#6cd6ff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/mountain.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-a)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/mountain.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-a)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#1a0f08" stroke="#c4844a" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#6cd6ff" stroke="#c4844a" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -463,7 +463,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-b)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-b)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/mug.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-b)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/mug.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-b)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#1a0f08" stroke="#c4844a" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#c4844a" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -506,7 +506,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-c)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-c)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/minecart.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-c)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/minecart.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-c)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#1a0f08" stroke="#c4844a" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#c4844a" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -550,7 +550,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-d)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-d)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/bow.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-d)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/bow.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-d)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#06160d" stroke="#a8e8b8" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#a8e8b8" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -593,7 +593,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-e)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-e)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/leaf.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-e)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/leaf.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-e)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#06160d" stroke="#a8e8b8" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#a8e8b8" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -636,7 +636,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-f)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-f)"/>
   <circle cx="50" cy="48" r="22" fill="#6cd6ff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/moon.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-f)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/moon.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-f)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#06160d" stroke="#a8e8b8" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#6cd6ff" stroke="#a8e8b8" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -679,7 +679,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-g)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-g)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/drop.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-g)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/drop.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-g)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#06160d" stroke="#a8e8b8" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#a8e8b8" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -722,7 +722,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-h)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-h)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/tree.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-h)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/tree.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-h)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#06160d" stroke="#a8e8b8" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#a8e8b8" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -765,7 +765,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-i)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-i)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/leaf.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-i)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/leaf.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-i)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#06160d" stroke="#a8e8b8" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#a8e8b8" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -809,7 +809,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-j)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-j)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/skull.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-j)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/skull.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-j)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0a0518" stroke="#b88dff" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#b88dff" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -852,7 +852,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-k)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-k)"/>
   <circle cx="50" cy="48" r="22" fill="#bdbdbd" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/bonespear.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-k)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/bonespear.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-k)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0a0518" stroke="#b88dff" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#bdbdbd" stroke="#b88dff" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -895,7 +895,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-l)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-l)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/darkwave.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-l)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/darkwave.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-l)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0a0518" stroke="#b88dff" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#b88dff" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -938,7 +938,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-m)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-m)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/tomb.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-m)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/tomb.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-m)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0a0518" stroke="#b88dff" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#b88dff" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -981,7 +981,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-n)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-n)"/>
   <circle cx="50" cy="48" r="22" fill="#b88dff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/crypt.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-n)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/crypt.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-n)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0a0518" stroke="#b88dff" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#b88dff" stroke="#b88dff" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
@@ -1024,7 +1024,7 @@
   <rect x="2" y="2" width="96" height="96" rx="5" fill="#fff" filter="url(#parch-o)"/>
   <circle cx="50" cy="48" r="38" fill="url(#halo-o)"/>
   <circle cx="50" cy="48" r="22" fill="#6cd6ff" opacity="0.10"/>
-  <image href="file:///Users/lukaszbartoszcze/work/simple-rts-unity/web/art/cards/darksword.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-o)"/>
+  <image href="file:///Users/lukaszbartoszcze/Documents/CodingProjects/Wisent/potyczka/web/art/cards/darksword.svg" x="6" y="6" width="88" height="88" preserveAspectRatio="xMidYMid meet" filter="url(#tint-o)"/>
   <path d="M50 2 L57 9 L50 16 L43 9 Z" fill="#0a0518" stroke="#b88dff" stroke-width="0.7"/>
   <circle cx="50" cy="9" r="2.2" fill="#6cd6ff" stroke="#b88dff" stroke-width="0.4"/>
   <circle cx="49.2" cy="8.2" r="0.7" fill="#fff" opacity="0.9"/>
