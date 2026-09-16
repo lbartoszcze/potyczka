@@ -1,0 +1,18 @@
+#
+# The card art: one SVG per icon a card can show, named as the card data
+# references it. The count is the number of icons the game has, and renaming
+# one breaks the card that asks for it.
+web/art/cards
+web/art/cards/
+#
+# The status animations: one GIF per status effect the game applies. Same
+# reason - the count is the number of effects, and the name is the reference.
+web/demos/anim
+web/demos/anim/
+#
+# The card preview and what renders it. render_card_preview.mjs writes
+# card_preview.svg and card_preview.png whole on every run, with gen.log
+# beside them and the game-icons it drew from, so the folder is one tool's
+# output plus the tool. The SVG's length is the number of shapes in a card.
+tools/card-preview
+tools/card-preview/
