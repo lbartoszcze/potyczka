@@ -115,10 +115,14 @@ function startRound() {
     const eName = boss ? bossForRound(round).name.toUpperCase() : RACES[enemyRace].name;
     toast.innerHTML = `${boss ? 'BOSS — ' : ''}Round ${round}<small>${MAPS[mapKey].icon} ${MAPS[mapKey].name}<br>${RACES[playerRace].icon} ${RACES[playerRace].name} vs ${eIcon} ${eName}</small>`;
     toast.classList.toggle('boss', boss);
+    // The toast's own CSS animation shows it, holds it and fades it; it
+    // leaves the screen when that animation ends.
+    toast.classList.remove('show');
+    void toast.offsetWidth;
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), boss ? 2400 : 1700);
+    toast.addEventListener('animationend', () => toast.classList.remove('show'), { once: true });
   }
-  setTimeout(() => { runAllSpells(playerSpells, units); playerSpells.length = 0; refreshHud(); }, 350);
+  runAllSpells(playerSpells, units); playerSpells.length = 0; refreshHud();
 }
 
 function pickTarget(u) {
@@ -232,14 +236,12 @@ function onWin() {
   saveMeta(meta);
   scoreLabel.textContent = `${RACES[playerRace].icon} L${factionLevel(meta, playerRace)} · ${wins}w · ${meta.gold} 🪙 (+${gold}) · +${xp} XP`;
   refreshHud();
-  setTimeout(() => {
-    showCardPicker(playerRace, round, meta, (card) => {
-      applyCard(card, playerRoster, playerSpells, playerRace, playerBuildings);
-      refreshHud();
-      round++;
-      startRound();
-    });
-  }, 800);
+  showCardPicker(playerRace, round, meta, (card) => {
+    applyCard(card, playerRoster, playerSpells, playerRace, playerBuildings);
+    refreshHud();
+    round++;
+    startRound();
+  });
 }
 
 function onLoss() {
@@ -252,10 +254,8 @@ function onLoss() {
   banner.innerHTML = `Defeat — round ${round}<small>User L${levelFor(meta.userXp)} · ${RACES[playerRace].name} L${factionLevel(meta, playerRace)} · ${wins}w · ${meta.gold} 🪙 · best R${meta.best[playerRace] || round}</small><button id="retry">New Run</button>`;
   banner.className = 'lose';
   banner.classList.remove('hidden');
-  setTimeout(() => {
-    const btn = document.getElementById('retry');
-    if (btn) btn.addEventListener('click', () => { banner.classList.add('hidden'); startGame(); });
-  }, 0);
+  const btn = document.getElementById('retry');
+  if (btn) btn.addEventListener('click', () => { banner.classList.add('hidden'); startGame(); });
 }
 
 function startSandboxFromBuilder() {

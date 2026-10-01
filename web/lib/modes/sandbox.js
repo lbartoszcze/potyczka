@@ -149,7 +149,9 @@ export function showSandboxBuilder(onStart, onCancel) {
       btn.style.background = '#e36a6a'; btn.style.color = '#fff';
       btn.textContent = !proster.length && !eroster.length ? 'Both sides empty'
         : !proster.length ? 'Your army is empty' : 'Enemy army is empty';
-      setTimeout(() => { btn.style.background = ''; btn.style.color = ''; btn.textContent = orig; }, 1500);
+      // The refusal stays until the operator changes an army.
+      const restore = () => { btn.style.background = ''; btn.style.color = ''; btn.textContent = orig; };
+      modal.addEventListener('change', restore, { once: true });
       return;
     }
     modal.classList.add('hidden');
@@ -168,12 +170,10 @@ export function showSandboxResult(won, onAgain, onExit) {
     <button id="sb-exit">Exit Sandbox</button>`;
   banner.className = won ? 'win' : 'lose';
   banner.classList.remove('hidden');
-  setTimeout(() => {
-    document.getElementById('sb-again').addEventListener('click', () => {
-      banner.classList.add('hidden'); onAgain();
-    });
-    document.getElementById('sb-exit').addEventListener('click', () => {
-      banner.classList.add('hidden'); onExit();
-    });
-  }, 0);
+  document.getElementById('sb-again').addEventListener('click', () => {
+    banner.classList.add('hidden'); onAgain();
+  });
+  document.getElementById('sb-exit').addEventListener('click', () => {
+    banner.classList.add('hidden'); onExit();
+  });
 }

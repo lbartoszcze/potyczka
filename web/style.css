@@ -73,10 +73,15 @@ canvas { display: block; width: 100%; height: 100%; cursor: default; }
   text-align: center;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 12;
 }
-#round-toast.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+#round-toast.show { animation: round-toast 1.7s ease both; }
+#round-toast.boss.show { animation-duration: 2.4s; }
+@keyframes round-toast {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
+  15%, 80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
+}
 #round-toast small { display: block; margin-top: 4px; font-size: 13px; font-weight: 400; color: var(--muted); letter-spacing: 0.04em; }
 
 #hud {
