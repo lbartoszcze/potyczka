@@ -28,3 +28,6 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# A run's screenshots and other throwaway evidence
+.work-test/
