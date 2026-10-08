@@ -4,7 +4,7 @@ export { applyTerrain } from './terrain/landmarks.js';
 
 export const canvas = document.getElementById('game');
 export const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setPixelRatio(window.devicePixelRatio);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -278,15 +278,19 @@ export function setProjectiles(segs) {
   projGeom.setDrawRange(0, n * 2);
 }
 
-function resize() {
-  const w = canvas.clientWidth || window.innerWidth;
-  const h = canvas.clientHeight || (window.innerHeight - 90);
-  renderer.setSize(w, h, false);
-  camera.aspect = w / h;
+// The canvas fills its stage (#stage, which takes the window's height left
+// under the header in style.css), so the stage's laid-out box is the size to
+// render at; it is read whenever layout changes it. A box with no area has
+// nothing to show and is not rendered into.
+function resize(width, height) {
+  renderer.setSize(width, height, false);
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
 }
-window.addEventListener('resize', resize);
-resize();
+new ResizeObserver(([entry]) => {
+  const { width, height } = entry.contentRect;
+  if (width && height) resize(width, height);
+}).observe(canvas.parentElement);
 
 export function panCamera(dx, dz) {
   cameraTarget.x = THREE.MathUtils.clamp(cameraTarget.x + dx, -60, 60);

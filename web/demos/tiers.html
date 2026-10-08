@@ -59,7 +59,7 @@
 
     function buildProcScene(canvas, raceKey) {
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(window.devicePixelRatio);
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.shadowMap.enabled = true; renderer.toneMapping = THREE.ACESFilmicToneMapping;
       const scene = new THREE.Scene(); scene.background = new THREE.Color(0xeeeeee);
