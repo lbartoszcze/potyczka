@@ -19,13 +19,6 @@ const sun = new THREE.DirectionalLight(0xfff2d0, 2.2);
 sun.position.set(40, 70, 25);
 sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048);
-sun.shadow.camera.near = 10;
-sun.shadow.camera.far = 200;
-const s = 70;
-sun.shadow.camera.left = -s;
-sun.shadow.camera.right = s;
-sun.shadow.camera.top = s;
-sun.shadow.camera.bottom = -s;
 sun.shadow.bias = -0.0008;
 scene.add(sun);
 
@@ -34,7 +27,7 @@ scene.add(sky);
 
 export const cameraTarget = new THREE.Vector3(0, 0, 0);
 const camOffset = new THREE.Vector3(10, 36, 28);
-export const camera = new THREE.PerspectiveCamera(50, 1, 0.5, 400);
+export const camera = new THREE.PerspectiveCamera(50, 1, 0.5);
 function syncCamera() {
   camera.position.copy(cameraTarget).add(camOffset);
   camera.lookAt(cameraTarget);
@@ -66,6 +59,22 @@ export const ground = new THREE.Mesh(
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
 scene.add(ground);
+
+// How far the sun's shadow and the camera's view reach is read from the
+// ground they fall on, not chosen: the shadow covers the ground's bounding
+// sphere as seen from the sun, and the view reaches across the whole ground
+// from wherever the camera follows the fight on it.
+const groundBounds = new THREE.Box3().setFromObject(ground).getBoundingSphere(new THREE.Sphere());
+const sunReach = sun.position.distanceTo(groundBounds.center);
+sun.shadow.camera.left = -groundBounds.radius;
+sun.shadow.camera.right = groundBounds.radius;
+sun.shadow.camera.top = groundBounds.radius;
+sun.shadow.camera.bottom = -groundBounds.radius;
+sun.shadow.camera.near = Math.max(sunReach - groundBounds.radius, Number.EPSILON);
+sun.shadow.camera.far = sunReach + groundBounds.radius;
+sun.shadow.camera.updateProjectionMatrix();
+camera.far = camOffset.length() + groundBounds.radius + groundBounds.radius;
+camera.updateProjectionMatrix();
 
 export const sceneryGroup = new THREE.Group();
 scene.add(sceneryGroup);
