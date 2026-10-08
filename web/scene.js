@@ -178,12 +178,14 @@ function inSpawnZone(x, z) {
 
 function scatter(count, factory) {
   for (let i = 0; i < count; i++) {
-    let x, z, tries = 0;
+    // Drawn again until the point is clear of the spawn zone: the zone is a
+    // small part of the field, so a draw lands outside it almost every time,
+    // and no object is ever left standing where units spawn.
+    let x, z;
     do {
       x = (Math.random() - 0.5) * 200;
       z = (Math.random() - 0.5) * 200;
-      tries++;
-    } while (inSpawnZone(x, z) && tries < 8);
+    } while (inSpawnZone(x, z));
     const obj = factory(x, z);
     if (obj) sceneryGroup.add(obj);
   }
