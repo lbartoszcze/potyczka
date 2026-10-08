@@ -18,7 +18,6 @@ scene.fog = new THREE.Fog(0xc8e0e8, 70, 180);
 const sun = new THREE.DirectionalLight(0xfff2d0, 2.2);
 sun.position.set(40, 70, 25);
 sun.castShadow = true;
-sun.shadow.mapSize.set(2048, 2048);
 sun.shadow.bias = -0.0008;
 scene.add(sun);
 
@@ -60,11 +59,13 @@ ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
 scene.add(ground);
 
-// How far the sun's shadow and the camera's view reach is read from the
-// ground they fall on, not chosen: the shadow covers the ground's bounding
-// sphere as seen from the sun, and the view reaches across the whole ground
-// from wherever the camera follows the fight on it.
-const groundBounds = new THREE.Box3().setFromObject(ground).getBoundingSphere(new THREE.Sphere());
+// How far the sun's shadow and the camera's view reach, and where the camera
+// may pan, is read from the ground they fall on, not chosen: the shadow covers
+// the ground's bounding sphere as seen from the sun, the view reaches across
+// the whole ground from wherever the camera follows the fight on it, and the
+// camera's target stays over the ground.
+const groundBox = new THREE.Box3().setFromObject(ground);
+const groundBounds = groundBox.getBoundingSphere(new THREE.Sphere());
 const sunReach = sun.position.distanceTo(groundBounds.center);
 sun.shadow.camera.left = -groundBounds.radius;
 sun.shadow.camera.right = groundBounds.radius;
@@ -73,8 +74,11 @@ sun.shadow.camera.bottom = -groundBounds.radius;
 sun.shadow.camera.near = Math.max(sunReach - groundBounds.radius, Number.EPSILON);
 sun.shadow.camera.far = sunReach + groundBounds.radius;
 sun.shadow.camera.updateProjectionMatrix();
-camera.far = camOffset.length() + groundBounds.radius + groundBounds.radius;
-camera.updateProjectionMatrix();
+function fitView() {
+  camera.far = camOffset.length() + groundBounds.radius + groundBounds.radius;
+  camera.updateProjectionMatrix();
+}
+fitView();
 
 export const sceneryGroup = new THREE.Group();
 scene.add(sceneryGroup);
@@ -292,11 +296,20 @@ export function setProjectiles(segs) {
 // The canvas fills its stage (#stage, which takes the window's height left
 // under the header in style.css), so the stage's laid-out box is the size to
 // render at; it is read whenever layout changes it. A box with no area has
-// nothing to show and is not rendered into.
+// nothing to show and is not rendered into. The sun's shadow map has as many
+// texels on a side as the drawing buffer has pixels on its longer side, up to
+// what this GPU allows, so a shadow is as sharp as the screen showing it.
 function resize(width, height) {
   renderer.setSize(width, height, false);
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
+  const buffer = renderer.getDrawingBufferSize(new THREE.Vector2());
+  const texels = Math.min(Math.max(buffer.x, buffer.y), renderer.capabilities.maxTextureSize);
+  if (sun.shadow.mapSize.x !== texels) {
+    sun.shadow.mapSize.setScalar(texels);
+    sun.shadow.map?.dispose();
+    sun.shadow.map = null;
+  }
 }
 new ResizeObserver(([entry]) => {
   const { width, height } = entry.contentRect;
@@ -304,13 +317,14 @@ new ResizeObserver(([entry]) => {
 }).observe(canvas.parentElement);
 
 export function panCamera(dx, dz) {
-  cameraTarget.x = THREE.MathUtils.clamp(cameraTarget.x + dx, -60, 60);
-  cameraTarget.z = THREE.MathUtils.clamp(cameraTarget.z + dz, -60, 60);
+  cameraTarget.x = THREE.MathUtils.clamp(cameraTarget.x + dx, groundBox.min.x, groundBox.max.x);
+  cameraTarget.z = THREE.MathUtils.clamp(cameraTarget.z + dz, groundBox.min.z, groundBox.max.z);
   syncCamera();
 }
 
 export function zoomCamera(delta) {
   const y = THREE.MathUtils.clamp(camOffset.y + delta, 28, 100);
   camOffset.set(0, y, y * 0.9);
+  fitView();
   syncCamera();
 }
