@@ -14,6 +14,22 @@ race, and draft one card per win between rounds. No install.
 
 Camera: WASD or screen edge to pan, scroll to zoom. Source under [`web/`](web/), auto-deployed to GitHub Pages on every push.
 
+## Look and feel: design decisions
+
+How Potyczka looks is the game's design, written in one place: the browser
+scene in [`web/scene.js`](web/scene.js) and the units in [`web/units.js`](web/units.js).
+The colours, light intensities, fog, sky, geometry sizes and segment counts,
+camera offset, field of view and follow rate, scenery scatter, hit effects and
+animation timing there are the design as it stands. No other file restates
+them and nothing derives them; changing the look means editing those values
+there.
+
+What the scene can measure is not a design choice and is computed at load:
+the renderer follows the stage's measured box and the device pixel ratio, the
+sun's shadow frustum and the camera's far plane cover the ground's bounds, the
+shadow map matches the drawing buffer within the GPU's texture limit, panning
+stays over the ground, and the shot buffer grows with the shots in flight.
+
 ---
 
 ## Unity 2022 LTS version (under `Assets/`)
