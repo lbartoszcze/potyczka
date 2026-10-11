@@ -16,19 +16,46 @@ Camera: WASD or screen edge to pan, scroll to zoom. Source under [`web/`](web/),
 
 ## Look and feel: design decisions
 
-How Potyczka looks is the game's design, written in one place: the browser
-scene in [`web/scene.js`](web/scene.js) and the units in [`web/units.js`](web/units.js).
+How Potyczka looks is the game's design: the browser scene in
+[`web/scene.js`](web/scene.js), units in [`web/units.js`](web/units.js), and
+shot appearance in [`web/render/projectiles.js`](web/render/projectiles.js).
 The colours, light intensities, fog, sky, geometry sizes and segment counts,
 camera offset, field of view and follow rate, scenery scatter, hit effects and
 animation timing there are the design as it stands. No other file restates
 them and nothing derives them; changing the look means editing those values
 there.
 
-What the scene can measure is not a design choice and is computed at load:
-the renderer follows the stage's measured box and the device pixel ratio, the
-sun's shadow frustum and the camera's far plane cover the ground's bounds, the
-shadow map matches the drawing buffer within the GPU's texture limit, panning
-stays over the ground, and the shot buffer grows with the shots in flight.
+What the scene can measure is not a design choice. The renderer follows the
+stage's measured box and display-scale changes through `ResizeObserver` and
+a resolution media-query event, without polling or reloading. The sun's
+shadow frustum and camera far plane cover the ground's bounds; the shadow map
+matches the drawing buffer within the GPU's texture limit. Panning stays over
+the ground. The shot buffer grows with shots in flight and disposes the old
+uploaded geometry before replacing its position attribute, so growth does
+not retain previous GPU buffers.
+
+### Rendering qualification
+
+`tests/rendering/index.html?fixture=<same-origin-json-path>` is a real WebGL
+qualification page for a dedicated Weles host serving this checkout root.
+It loads the game's declared Three import map, not a test renderer or mock.
+The fixture declares `revision`, `sourceHashes` keyed by
+`../../web/render/projectiles.js` and `../../web/render/viewport.js`,
+canvas `width`/`height`, orthographic `camera` constructor arguments,
+`cameraPosition`, `cameraTarget`, and `frames` of projectile endpoint tuples.
+Each tuple contains the start and end three-dimensional coordinates.
+Hashes are SHA-256 of the exact served source bytes. Include a nonempty frame,
+a larger frame, shrinkage and an empty frame; growth of an already rendered
+frame is required.
+
+The page submits these frames through the production projectile renderer.
+It checks the actual WebGL buffer is deleted when capacity grows, validates
+draw range and uploaded endpoint values, and retains each rendered PNG.
+Weles qualification must retain `window.qualification`, the source revision,
+fixture, page URL, recording and images. A source hash mismatch, absent
+fixture or driver failure is a failed report with its cause, not a pass.
+This focused test does not qualify display-scale transitions, the complete
+battle journey or Unity; those still require their real graphical flows.
 
 ---
 

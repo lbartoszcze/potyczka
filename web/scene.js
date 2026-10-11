@@ -1,10 +1,11 @@
 import * as THREE from 'three';
 import { buildLandmarks } from './terrain/landmarks.js';
 export { applyTerrain } from './terrain/landmarks.js';
+import { projLines } from './render/projectiles.js';
+import { observeViewport } from './render/viewport.js';
 
 export const canvas = document.getElementById('game');
 export const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setPixelRatio(window.devicePixelRatio);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -242,15 +243,6 @@ setMap('meadow');
 
 export const raycaster = new THREE.Raycaster();
 
-// The projectile buffer holds every segment in flight: it is reallocated to
-// the size a frame needs whenever that frame has more segments than it holds,
-// so no shot is dropped past a fixed pool.
-const projGeom = new THREE.BufferGeometry();
-projGeom.setAttribute('position', new THREE.BufferAttribute(new Float32Array(0), 3));
-const projMat = new THREE.LineBasicMaterial({ color: 0xfff5d6, transparent: true, opacity: 0.85 });
-const projLines = new THREE.LineSegments(projGeom, projMat);
-projLines.frustumCulled = false;
-projGeom.setDrawRange(0, 0);
 scene.add(projLines);
 
 const fxMeshes = [];
@@ -277,44 +269,9 @@ export function updateFx(dt) {
   }
 }
 
-export function setProjectiles(segs) {
-  const needed = segs.length * 6;
-  if (projGeom.attributes.position.array.length < needed) {
-    projGeom.setAttribute('position', new THREE.BufferAttribute(new Float32Array(needed), 3));
-  }
-  const pos = projGeom.attributes.position.array;
-  const n = segs.length;
-  for (let i = 0; i < n; i++) {
-    const s = segs[i];
-    pos[i * 6 + 0] = s[0]; pos[i * 6 + 1] = s[1]; pos[i * 6 + 2] = s[2];
-    pos[i * 6 + 3] = s[3]; pos[i * 6 + 4] = s[4]; pos[i * 6 + 5] = s[5];
-  }
-  projGeom.attributes.position.needsUpdate = true;
-  projGeom.setDrawRange(0, n * 2);
-}
 
-// The canvas fills its stage (#stage, which takes the window's height left
-// under the header in style.css), so the stage's laid-out box is the size to
-// render at; it is read whenever layout changes it. A box with no area has
-// nothing to show and is not rendered into. The sun's shadow map has as many
-// texels on a side as the drawing buffer has pixels on its longer side, up to
-// what this GPU allows, so a shadow is as sharp as the screen showing it.
-function resize(width, height) {
-  renderer.setSize(width, height, false);
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  const buffer = renderer.getDrawingBufferSize(new THREE.Vector2());
-  const texels = Math.min(Math.max(buffer.x, buffer.y), renderer.capabilities.maxTextureSize);
-  if (sun.shadow.mapSize.x !== texels) {
-    sun.shadow.mapSize.setScalar(texels);
-    sun.shadow.map?.dispose();
-    sun.shadow.map = null;
-  }
-}
-new ResizeObserver(([entry]) => {
-  const { width, height } = entry.contentRect;
-  if (width && height) resize(width, height);
-}).observe(canvas.parentElement);
+// Layout and display-scale events keep the measured buffer and shadow map current.
+observeViewport(renderer, camera, sun, canvas.parentElement);
 
 export function panCamera(dx, dz) {
   cameraTarget.x = THREE.MathUtils.clamp(cameraTarget.x + dx, groundBox.min.x, groundBox.max.x);

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import { scene, camera, renderer, setProjectiles, updateFx, trackCamera, resetCameraTarget, spawnFx, setMap, mapForRound, MAPS, applyTerrain } from './scene.js';
+import { scene, camera, renderer, updateFx, trackCamera, resetCameraTarget, spawnFx, setMap, mapForRound, MAPS, applyTerrain } from './scene.js';
+import { setProjectiles } from './render/projectiles.js';
 import { makeUnit, updateUnitVisuals } from './units.js';
 import { RACES, applyCard, showCardPicker, showRacePicker,
          loadMeta, saveMeta, awardRoundXp, awardRunEndXp, recordRunEnd,
