@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "product": "potyczka",
+  "releases": false,
+  "reason": "The browser game under web/ is published by the repository's GitHub Pages workflow on each push to main that changes it, and the Unity project is opened from source in the editor; no Stado release builds, stages or promotes either."
+}
