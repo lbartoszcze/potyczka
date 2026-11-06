@@ -10,6 +10,7 @@ import { applyBuildings, buildingHealBonus, placeBuildings } from './lib/buildin
 import { isBossRound, bossRoster, bossForRound, swapToBossMesh } from './lib/bosses.js';
 import { showSandboxBuilder, showSandboxResult } from './lib/modes/sandbox.js';
 import { applyVariantHit, tickRaceClass, applyRaceBuffsAtSpawn } from './lib/modes/race-class.js';
+import { PHASE, nextPhase } from './lib/run/phase.js';
 
 const TEAM_BLUE = 0;
 const TEAM_RED = 1;
@@ -28,7 +29,8 @@ const ENEMY_RACES = ['skeletons', 'dwarves', 'elves', 'humans'];
 const meta = loadMeta();
 let currentMapKey = 'meadow', playerRace = 'humans', enemyRace = 'skeletons';
 let playerRoster = [], playerSpells = [], playerBuildings = [];
-let round = 1, wins = 0, phase = 'select', sandboxMode = false, sandboxEnemyRoster = null;
+let round = 1, wins = 0, phase = PHASE.SELECT, sandboxMode = false, sandboxEnemyRoster = null;
+const enterPhase = (next) => { phase = nextPhase(phase, next); };
 const buildingMeshes = [], units = [], projectiles = [];
 const PROJ_TTL = 0.12, RANGED_THRESHOLD = 3.0;
 
@@ -87,9 +89,9 @@ function spawnRoster(teamIdx, roster, baseZ, raceKey) {
 const _renderBar = (bar, items, cls) => { bar.innerHTML = ''; for (const it of items) { const el = document.createElement('div'); el.className = cls; el.title = it.name; el.textContent = it.icon; bar.appendChild(el); } };
 function refreshHud() {
   let alive = 0, totalHp = 0, maxHp = 0, reds = 0;
-  if (phase === 'battle') for (const u of units) { if (u.team === TEAM_BLUE) { maxHp += u.maxHp; if (u.hp > 0) { alive++; totalHp += u.hp; } } else if (u.hp > 0) reds++; }
+  if (phase === PHASE.BATTLE) for (const u of units) { if (u.team === TEAM_BLUE) { maxHp += u.maxHp; if (u.hp > 0) { alive++; totalHp += u.hp; } } else if (u.hp > 0) reds++; }
   else { alive = playerRoster.length; for (const w of playerRoster) { totalHp += w.currentHp; maxHp += w.maxHp; } }
-  rosterLabel.textContent = `${alive} alive · ${Math.round(totalHp)}/${maxHp} HP${phase === 'battle' ? ` · ${reds} enemies` : ''}`;
+  rosterLabel.textContent = `${alive} alive · ${Math.round(totalHp)}/${maxHp} HP${phase === PHASE.BATTLE ? ` · ${reds} enemies` : ''}`;
   _renderBar(spellsBar, playerSpells, 'spell');
   _renderBar(buildingsBar, playerBuildings, 'building');
 }
@@ -104,7 +106,7 @@ function startRound() {
   spawnRoster(TEAM_BLUE, playerRoster, BASE_Z, playerRace);
   const enemyList = sandboxMode ? sandboxEnemyRoster : boss ? bossRoster(round, RACES[enemyRace].base) : enemyRosterForRound(round, enemyRace);
   spawnRoster(TEAM_RED, enemyList, -BASE_Z, enemyRace);
-  phase = 'battle';
+  enterPhase(PHASE.BATTLE);
   const enemyLabel = boss ? bossForRound(round).name : RACES[enemyRace].name;
   roundLabel.textContent = `Round ${round} — vs ${enemyLabel}`;
   scoreLabel.textContent = `${RACES[playerRace].icon} ${RACES[playerRace].name} · ${wins} ${wins === 1 ? 'win' : 'wins'}`;
@@ -205,7 +207,7 @@ function step(dt, t) {
     if (u.hp <= 0) continue;
     if (u.team === TEAM_BLUE) blue++; else red++;
   }
-  if (phase === 'battle') {
+  if (phase === PHASE.BATTLE) {
     refreshHud();
     if (red === 0 && blue > 0) onWin();
     else if (blue === 0) onLoss();
@@ -229,8 +231,8 @@ function syncRosterFromUnits() {
 }
 
 function onWin() {
-  if (sandboxMode) { phase = 'gameover'; showSandboxResult(true, () => startSandboxFromBuilder(), () => startGame()); return; }
-  phase = 'cardpick';
+  if (sandboxMode) { enterPhase(PHASE.GAMEOVER); showSandboxResult(true, () => startSandboxFromBuilder(), () => startGame()); return; }
+  enterPhase(PHASE.CARDPICK);
   wins++;
   syncRosterFromUnits();
   const { gold, xp } = awardRoundXp(meta, playerRace, isBossRound(round));
@@ -246,8 +248,8 @@ function onWin() {
 }
 
 function onLoss() {
-  if (sandboxMode) { phase = 'gameover'; showSandboxResult(false, () => startSandboxFromBuilder(), () => startGame()); return; }
-  phase = 'gameover';
+  if (sandboxMode) { enterPhase(PHASE.GAMEOVER); showSandboxResult(false, () => startSandboxFromBuilder(), () => startGame()); return; }
+  enterPhase(PHASE.GAMEOVER);
   syncRosterFromUnits();
   recordRunEnd(meta, playerRace, round);
   awardRunEndXp(meta, playerRace);
@@ -262,6 +264,7 @@ function onLoss() {
 function startSandboxFromBuilder() {
   showSandboxBuilder((prace, proster, erace, eroster) => {
     sandboxMode = true; playerRace = prace; enemyRace = erace;
+    if (phase !== PHASE.SELECT) enterPhase(PHASE.SELECT);
     playerRoster = proster; sandboxEnemyRoster = eroster;
     playerSpells = []; playerBuildings = []; round = 1; wins = 0;
     startRound();
@@ -269,6 +272,7 @@ function startSandboxFromBuilder() {
 }
 function startGame() {
   sandboxMode = false;
+  if (phase !== PHASE.SELECT) enterPhase(PHASE.SELECT);
   showRacePicker(meta, (raceKey) => {
     playerRace = raceKey; playerRoster = makeBaseRoster(raceKey);
     playerSpells = []; playerBuildings = []; round = 1; wins = 0;
@@ -281,7 +285,7 @@ function frame(now) {
   const dt = Math.min(0.05, (now - last) / 1000);
   last = now;
   const t = now / 1000;
-  if (phase === 'battle') step(dt, t);
+  if (phase === PHASE.BATTLE) step(dt, t);
   updateFx(dt);
   trackCamera(units);
   for (const u of units) updateUnitVisuals(u, camera, t);
