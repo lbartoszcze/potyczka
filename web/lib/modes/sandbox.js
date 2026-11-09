@@ -134,10 +134,21 @@ export function showSandboxBuilder(onStart, onCancel) {
   document.getElementById('sb-export').addEventListener('click', () => {
     ta.value = JSON.stringify(readSetup(), null, 2);
   });
-  try {
-    const m = location.hash.match(/[#&]sb=([^&]+)/);
-    if (m) applySetup(JSON.parse(decodeURIComponent(m[1])));
-  } catch (e) {}
+  const shared = location.hash.match(/[#&]sb=([^&]+)/);
+  if (shared) {
+    let text = shared[1];
+    try {
+      text = decodeURIComponent(shared[1]);
+      applySetup(JSON.parse(text));
+    } catch (e) {
+      // A shared setup link that cannot be read is shown in the setup box,
+      // marked, rather than ignored: the sandbox then looked like the
+      // shared setup and was not.
+      ta.value = text;
+      ta.style.borderColor = '#e36a6a';
+      console.error(`The setup in this link could not be read (${e.message}); it is shown in the setup box.`);
+    }
+  }
   document.getElementById('sb-fight').addEventListener('click', () => {
     const prace = document.querySelector('[data-side="p-race"]').value;
     const erace = document.querySelector('[data-side="e-race"]').value;
