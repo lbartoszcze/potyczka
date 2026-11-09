@@ -2,8 +2,7 @@ import * as THREE from 'three';
 import { makeHorse, makeWings, deriveWeaponStyle, animForWeapon, weaponPose } from './lib/weapons.js';
 import { buildStatusAuras, updateStatusAuras } from './lib/modes/effects.js';
 import { makeBody } from './art/anatomy.js';
-import { loadHumanoid, isHumanoidReady, buildHumanoidUnit, playClip } from './art/loader.js';
-loadHumanoid().catch(() => {});
+import { isHumanoidReady, buildHumanoidUnit, playClip } from './art/loader.js';
 
 export const MAX_HP = 100;
 
