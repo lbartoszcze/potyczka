@@ -3,7 +3,7 @@ export function loadHumanoid() { return Promise.resolve(null); }
 export function isHumanoidReady() { return false; }
 export function isRaceReady() { return false; }
 export function loadAllRaces() { return Promise.resolve([]); }
-export function loadRaceModel() { return Promise.reject(new Error('procedural-only')); }
+export function loadRaceModel() { return Promise.reject(new Error('procedural-only: this build draws races procedurally and loads no race model')); }
 export function buildRaceUnit() { return null; }
 export function buildHumanoidUnit() { return null; }
 export function playClip() { return null; }
