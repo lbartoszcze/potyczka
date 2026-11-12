@@ -31,3 +31,4 @@ Thumbs.db
 
 # A run's screenshots and other throwaway evidence
 .work-test/
+.build/
