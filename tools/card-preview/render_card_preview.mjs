@@ -1,13 +1,15 @@
 import { writeFileSync } from 'fs';
-import { dirname, resolve } from 'path';
+import { dirname, relative, resolve } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 
 // The card art and this renderer live in the same checkout, so both are
-// resolved from this file. The base used to be an absolute path into a
-// directory outside the repository, which only ever worked on the machine it
-// was written on.
-const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-globalThis.window = { CARD_ART_BASE: pathToFileURL(resolve(REPO, 'web/art/cards')).href };
+// resolved from this file. The art is referenced relative to the preview it
+// is drawn into: an absolute file URL wrote the path of the checkout it ran
+// in into the committed SVG, which named one machine's home and showed no
+// art anywhere else.
+const HERE = dirname(fileURLToPath(import.meta.url));
+const REPO = resolve(HERE, '../..');
+globalThis.window = { CARD_ART_BASE: relative(HERE, resolve(REPO, 'web/art/cards')) };
 const { cardArtSvg } = await import(pathToFileURL(resolve(REPO, 'web/art/card-art.js')).href);
 
 const SAMPLES = [
