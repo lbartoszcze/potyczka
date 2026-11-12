@@ -2,9 +2,9 @@ import * as THREE from 'three';
 import { scene, camera, renderer, updateFx, trackCamera, resetCameraTarget, spawnFx, setMap, mapForRound, MAPS, applyTerrain } from './scene.js';
 import { setProjectiles } from './render/projectiles.js';
 import { makeUnit, updateUnitVisuals } from './units.js';
-import { RACES, applyCard, showCardPicker, showRacePicker,
-         loadMeta, saveMeta, awardRoundXp, awardRunEndXp, recordRunEnd,
-         levelFor, factionLevel } from './lib/cards.js';
+import { RACES, applyCard, showCardPicker, showRacePicker } from './lib/cards.js';
+import { loadMeta, saveMeta, awardRoundXp, awardRunEndXp, recordRunEnd,
+         levelFor, factionLevel } from './lib/run/progress.js';
 import { runAllSpells } from './lib/spells.js';
 import { applyBuildings, buildingHealBonus, placeBuildings } from './lib/buildings.js';
 import { isBossRound, bossRoster, bossForRound, swapToBossMesh } from './lib/bosses.js';

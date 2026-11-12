@@ -1,5 +1,6 @@
 import { cardArtSvg } from '../art/card-art.js';
 import { registerVariants } from './modes/variants.js';
+import { factionLevel, isUnlocked, levelFor, tryUnlock, unlockCost, xpForLevel } from './run/progress.js';
 
 export const RACES = {
   humans: {
@@ -141,11 +142,6 @@ function _renderPicks() {
   }
 }
 export function resetPicks() { _picks.length = 0; _renderPicks(); }
-
-// What a player keeps between runs lives in run/progress.js; game.js reads
-// it from here, as before.
-export { awardRoundXp, awardRunEndXp, factionLevel, isUnlocked, levelFor, loadMeta, recordRunEnd, saveMeta, tryUnlock, unlockCost, xpForLevel } from './run/progress.js';
-import { factionLevel, isUnlocked, levelFor, tryUnlock, unlockCost, xpForLevel } from './run/progress.js';
 
 const TIER_LEVEL = { common: 1, combo: 3, rare: 6 };
 
